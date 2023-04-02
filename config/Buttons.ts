@@ -1,6 +1,5 @@
 import { IUIActionButtonDescriptor, RoomTypeFilter, UIActionButtonContext } from "@rocket.chat/apps-engine/definition/ui";
 
-
 export const buttons: Array<IUIActionButtonDescriptor> = [
     {
         actionId: 'my-action-id-message', // this identifies your button in the interaction event
@@ -23,6 +22,29 @@ export const buttons: Array<IUIActionButtonDescriptor> = [
         actionId: 'my-action-id-room', // this identifies your button in the interaction event
         labelI18n: 'MyActionNameRoom', // key of the i18n string containing the name of the button
         context: UIActionButtonContext.ROOM_ACTION, // in what context the action button will be displayed in the UI
-    }
-
-]
+    },
+    {
+        actionId: 'botpress-connector', // this identifies your button in the interaction event
+        labelI18n: 'Botpress Connector', // key of the i18n string containing the name of the button
+        context: UIActionButtonContext.ROOM_ACTION, // in what context the action button will be displayed in the UI
+        when: {
+            roomTypes: [
+                RoomTypeFilter.PUBLIC_CHANNEL,
+                RoomTypeFilter.PRIVATE_CHANNEL,
+                RoomTypeFilter.DIRECT,
+            ],
+        },
+    },
+    {
+        actionId: 'botpress-connector-settings', // this identifies your button in the interaction event
+        labelI18n: 'Botpress Connector Settings', // key of the i18n string containing the name of the button
+        context: UIActionButtonContext.ROOM_SIDEBAR_ACTION, // in what context the action button will be displayed in the UI
+        when: {
+            roomTypes: [
+                RoomTypeFilter.PUBLIC_CHANNEL,
+                RoomTypeFilter.PRIVATE_CHANNEL,
+                RoomTypeFilter.DIRECT,
+            ],
+        },
+    },
+];

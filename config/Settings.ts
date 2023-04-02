@@ -5,7 +5,9 @@ export enum AppSetting {
     AppDemoString = 'appdemo_string_id',
     AppDemoBoolean = 'appdemo_boolean',
     AppDemoCode = 'appdemo_code',
-    AppDemoSelect = 'appdemo_select'
+    AppDemoSelect = 'appdemo_select',
+    AppDemoNumber = 'appdemo_number',
+    AppDemoMultiselect = 'appdemo_multiselect'
 }
 
 export const settings: Array<ISetting> = [
@@ -48,7 +50,10 @@ export const settings: Array<ISetting> = [
         section: "AppDemo_DemoSection",
         public: true,
         type: SettingType.SELECT,
-        values: [{"key": "option1", "i18nLabel": "option_1_label"},{"key": "option2", "i18nLabel": "option_2_label"}],
+        values: [
+            {"key": "option1", "i18nLabel": "option_1_label"},
+            {"key": "option2", "i18nLabel": "option_2_label"}
+        ],
         packageValue: "",
         hidden: false,
         i18nLabel: 'AppDemo_Select',
@@ -65,4 +70,30 @@ export const settings: Array<ISetting> = [
         i18nLabel: 'AppDemo_String',
         required: false,
     },
-]
+    {
+        id: AppSetting.AppDemoNumber,
+        section: "AppDemo_DemoSection",
+        public: true,
+        type: SettingType.NUMBER,
+        value: 42,
+        packageValue: "",
+        hidden: false,
+        i18nLabel: 'AppDemo_Number',
+        required: false,
+    },
+    {
+        id: AppSetting.AppDemoMultiselect,
+        section: "AppDemo_DemoSection",
+        public: true,
+        type: SettingType.MULTI_SELECT,
+        values: [
+            {"key": "option1", "i18nLabel": "option_1_label"},
+            {"key": "option2", "i18nLabel": "option_2_label"},
+            {"key": "option3", "i18nLabel": "option_3_label"}
+        ],
+        packageValue: "",
+        hidden: false,
+        i18nLabel: 'AppDemo_Multiselect',
+        required: false,
+    },
+];

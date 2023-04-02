@@ -23,42 +23,62 @@ export class ExampleEndpoint extends ApiEndpoint {
         http: IHttp,
         persis: IPersistence
     ): Promise<IApiResponse> {
-        // lets define the body of the message
-        var body: string;
-        // if there is a payload, let's format it to a string/message
+        // Check if the user is authenticated
+        if (!request.user) {
+            return {
+                status: HttpStatusCode.UNAUTHORIZED,
+                content: "You must be authenticated to access this endpoint.",
+            };
+        }
+
+        // Get user information from the request
+        const { username, emails } = request.user;
+
+        // Let's define the body of the response message
+        let responseBody: string;
+
+        // If there is a payload, let's format it to a string/message
         if (Object.entries(request.content).length) {
-            body = Object.entries(request.content)
+            responseBody = Object.entries(request.content)
                 .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
                 .join("\n");
         } else {
-            body = "No Payload sent :cry:";
+            responseBody = "No payload sent :cry:";
         }
-        // log it, if you want
-        this.app.getLogger().info("ENDPOINT CALLED: " + body);
-        console.log("ENDPOINT CALLED: ", body);
-        // now we get the GENERAL ROOM by ID
+
+        // Log the request body
+        this.app.getLogger().info(`Endpoint called by ${username}: ${responseBody}`);
+        console.log(`Endpoint called by ${username}: ${responseBody}`);
+
+        // Get the general room by ID
         // All Rocket.Chat workspaces will have by default a channel
-        // with id GENERAL
-        const room = await read.getRoomReader().getById("GENERAL");
-        // Oh, no! no GENERAL room, return a not found error
-        if (!room) {
+        // with id "GENERAL"
+        const generalRoom = await read.getRoomReader().getById("GENERAL");
+
+        // If the general room is not found, return a not found error
+        if (!generalRoom) {
             return {
                 status: HttpStatusCode.NOT_FOUND,
                 content: `Room "#general" could not be found`,
             };
         }
-        // lets construct the message
-        const messageBuilder = modify
+
+        // Let's construct the response message with some user information
+        const responseMessage = modify
             .getCreator()
             .startMessage()
-            .setText(body)
-            .setRoom(room);
-        // sent the message
-        const messageId = await modify.getCreator().finish(messageBuilder);
-        // return with success
+            .setText(`Hello ${username}! This is your payload:\n\n${responseBody}\n`)
+            .setRoom(generalRoom)
+            .setUsernameAlias("Bot")
+            .setAvatarUrl("https://cdn.iconscout.com/icon/free/png-256/robot-robots-future-futuristic-ai-artificial-intelligence-34463.png");
+
+        // Send the response message
+        const responseMessageId = await modify.getCreator().finish(responseMessage);
+
+        // Return with success
         return this.success({
             success: true,
-            messageId: messageId
+            messageId: responseMessageId,
         });
     }
 }

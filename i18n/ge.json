@@ -1,0 +1,15 @@
+{
+    "AppDemo_String": "Beschriftung für eine Zeichenketten-Einstellung",
+    "AppDemo_Boolean": "Beschriftung für die boolesche Einstellung",
+    "AppDemo_Code": "Beschriftung für den Code",
+    "AppDemo_Color": "Beschriftung für eine Farbe",
+    "AppDemo_Select": "Beschriftung für eine Auswahlliste",
+    "AppDemo_DemoSection": "Dies ist ein Abschnitt von Einstellungen",
+    "AppDemo_OutputChannel": "Ausgabemitteilungen an diesen Raum",
+    "AppDemo_OutputChannel_Desc": "Hier werden alle Nachrichten und Alarme von Demo gesendet. z.B.: #general",
+    "ExampleCommand_Params": "Dies sind die Parameter des Beispielbefehls",
+    "ExampleCommand_Description": "Dies ist die Beschreibung des Beispielbefehls",
+    "IncrementCommand_Description": "Erhöht den auf diesem Kanal gespeicherten Wert um eine Zahl",
+    "MyActionNameMessage": "😎 Nachrichtenaktion",
+    "MyActionNameRoom": "😎 Raumaktion"
+}

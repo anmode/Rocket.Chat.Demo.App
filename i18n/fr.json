@@ -1,0 +1,15 @@
+{
+    "AppDemo_String": "Libellé pour un paramètre de chaîne",
+    "AppDemo_Boolean": "Libellé pour le paramètre booléen",
+    "AppDemo_Code": "Libellé pour le code",
+    "AppDemo_Color": "Libellé pour une couleur",
+    "AppDemo_Select": "Libellé pour un Select",
+    "AppDemo_DemoSection": "Ceci est une section de paramètres",
+    "AppDemo_OutputChannel": "Messages de sortie vers cette salle",
+    "AppDemo_OutputChannel_Desc": "C'est là que tous les messages et alertes de Demo seront envoyés. Exemple: #general",
+    "ExampleCommand_Params": "Ceci sont les paramètres de la commande d'exemple",
+    "ExampleCommand_Description": "Ceci est la description de la commande d'exemple",
+    "IncrementCommand_Description": "Incrémente la valeur stockée sur ce canal d'un nombre",
+    "MyActionNameMessage": "😎 Action de message",
+    "MyActionNameRoom": "😎 Action de salle"
+}

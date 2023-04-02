@@ -1,0 +1,15 @@
+{
+    "AppDemo_String": "Etiqueta para una configuración de cadena",
+    "AppDemo_Boolean": "Etiqueta para la configuración booleana",
+    "AppDemo_Code": "Etiqueta para el código",
+    "AppDemo_Color": "Etiqueta para un color",
+    "AppDemo_Select": "Etiqueta para un Select",
+    "AppDemo_DemoSection": "Esta es una sección de configuraciones",
+    "AppDemo_OutputChannel": "Mensajes de salida a esta sala",
+    "AppDemo_OutputChannel_Desc": "Aquí es donde irán todos los mensajes y alertas de Demo. Ejemplo: #general",
+    "ExampleCommand_Params": "Estos son los parámetros del comando de ejemplo",
+    "ExampleCommand_Description": "Esta es la descripción del comando de ejemplo",
+    "IncrementCommand_Description": "Incrementa el valor almacenado en este canal por un número",
+    "MyActionNameMessage": "😎 Acción de Mensaje",
+    "MyActionNameRoom": "😎 Acción de Sala"
+}
